@@ -273,6 +273,7 @@ pipeline {
               },
               postFailure: {
                 cambpmPublishTestResult()
+                cambpmArchiveArtifacts('qa/integration-tests-webapps/shared-engine/target/selenium-screenshots/*')
               }
             ])
           }
@@ -291,6 +292,7 @@ pipeline {
               },
               postFailure: {
                 cambpmPublishTestResult()
+                cambpmArchiveArtifacts('qa/integration-tests-webapps/shared-engine/target/selenium-screenshots/*')
               }
             ])
           }
@@ -307,6 +309,7 @@ pipeline {
               },
               postFailure: {
                 cambpmPublishTestResult()
+                cambpmArchiveArtifacts('qa/integration-tests-webapps/standalone-engine/target/selenium-screenshots/*')
               }
             ])
           }
@@ -325,6 +328,7 @@ pipeline {
               },
               postFailure: {
                 cambpmPublishTestResult()
+                cambpmArchiveArtifacts('qa/integration-tests-webapps/standalone-engine/target/selenium-screenshots/*')
               }
             ])
           }
@@ -343,6 +347,7 @@ pipeline {
               },
               postFailure: {
                 cambpmPublishTestResult()
+                cambpmArchiveArtifacts('distro/run/qa/runtime/target/selenium-screenshots/*')
               }
             ])
           }
