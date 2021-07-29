@@ -87,7 +87,7 @@ public class SeleniumScreenshotRule implements TestRule {
           return;
         }
 
-        log.info(scrFilename + " screenshot created.");
+        log.info("Screenshot created at: " + outputFile.getPath());
       }
 
     };
