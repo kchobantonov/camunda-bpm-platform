@@ -20,13 +20,13 @@ import javax.enterprise.inject.spi.BeanManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.quarkus.arc.Arc;
 import io.quarkus.arc.runtime.BeanContainer;
 import io.quarkus.runtime.RuntimeValue;
 import io.quarkus.runtime.ShutdownContext;
 import io.quarkus.runtime.annotations.Recorder;
 import org.camunda.bpm.container.RuntimeContainerDelegate;
 import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.cdi.CdiStandaloneProcessEngineConfiguration;
 import org.camunda.bpm.engine.cdi.impl.event.CdiEventSupportBpmnParseListener;
 import org.camunda.bpm.engine.cdi.impl.util.BeanManagerLookup;
 import org.camunda.bpm.engine.impl.bpmn.parser.BpmnParseListener;
@@ -103,6 +103,10 @@ public class CamundaEngineRecorder {
     runtimeContainerDelegate.registerProcessEngine(processEngine);
 
     return new RuntimeValue<>(processEngine);
+  }
+
+  public void fireProcessEngineStartEvent() {
+    Arc.container().beanManager().fireEvent(new ProcessEngineStartEvent());
   }
 
   public void registerShutdownTask(ShutdownContext shutdownContext,
