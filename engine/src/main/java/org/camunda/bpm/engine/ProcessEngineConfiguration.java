@@ -211,6 +211,8 @@ public abstract class ProcessEngineConfiguration {
   protected boolean jobExecutorPreferTimerJobs = false;
   protected boolean jobExecutorAcquireByDueDate = false;
   protected boolean jobExecutorAcquireByPriority = false;
+  protected Long jobExecutorPriorityRangeMin = null;
+  protected Long jobExecutorPriorityRangeMax = null;
 
   protected boolean ensureJobDueDateNotNull = false;
   protected boolean producePrioritizedJobs = true;
@@ -964,6 +966,22 @@ public abstract class ProcessEngineConfiguration {
 
   public void setJobExecutorAcquireByPriority(boolean jobExecutorAcquireByPriority) {
     this.jobExecutorAcquireByPriority = jobExecutorAcquireByPriority;
+  }
+
+  public Long getJobExecutorPriorityRangeMin() {
+    return jobExecutorPriorityRangeMin;
+  }
+
+  public void setJobExecutorPriorityRangeMin(Long jobExecutorPriorityRangeMin) {
+    this.jobExecutorPriorityRangeMin = jobExecutorPriorityRangeMin;
+  }
+
+  public Long getJobExecutorPriorityRangeMax() {
+    return jobExecutorPriorityRangeMax;
+  }
+
+  public void setJobExecutorPriorityRangeMax(Long jobExecutorPriorityRangeMax) {
+    this.jobExecutorPriorityRangeMax = jobExecutorPriorityRangeMax;
   }
 
   public boolean isProducePrioritizedExternalTasks() {
